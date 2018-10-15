@@ -1,0 +1,31 @@
+<form>
+
+  <!-- Step 2. Display initial data from the server -->
+<div class="panel panel-default" ng-if="!data.appServers">
+  <div class="panel-body">Click Above to Select an Application</div>
+</div>
+
+  <!-- Step 5. Display customized content based on user input -->
+  <table class="table table-rounded" ng-if="data.appServers">
+        <thead>
+          <tr>
+            <th>Server Name</th>
+            <th>Server Status</th>
+          </tr>
+        </thead>
+      	<tbody>
+          <tr ng-repeat="s in data.appServers">
+            <td>{{s.name}}</td>
+            <td><i uib-tooltip-html="'<li>RED = Zerto backup more than 24 hours</li>
+              												<li>YELLOW = Zerto backup between 4 and 24 hours</li>
+              												<li>GREEN = Zerto backup less than 4 hours</li>
+              												<li>No Symbol = no Zerto information</li>'"
+                   tooltip-placement="bottom"
+                   class="{{s.date_status}}"></i></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+</form>
+	

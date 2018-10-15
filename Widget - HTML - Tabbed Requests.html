@@ -1,0 +1,79 @@
+<form>
+
+  <!-- Step 2. Display initial data from the server -->
+  <div ng-if="!data.itemsInput">
+<ul class="nav nav-tabs" >
+  <li role="presentation"
+      ng-repeat="s in data.summary"
+      ng-class='{active:$first}'
+      ng-click="c.selectAg(s)"><a ui-sref={{s.agValue}}>{{s.agName}}
+    <span class="label label-as-badge label-primary sp-navbar-badge-count">{{s.agCount}}</span></a>
+  </li>
+
+</ul>
+    <table class="table table-striped"
+         ng-if="data.items">
+
+    <thead>
+    <tr>
+      <th ng-repeat="(key,val) in data.labels" ng-click="c.changeSortCol(key)">{{val.label}}
+        <span ng-show="c.orderCol==key">
+      <span class="fa fa-sort-asc"
+            ng-show="!c.sortOrder"></span>
+      <span class="fa fa-sort-desc"
+            ng-show="c.sortOrder"></span>
+      </span></th>
+     </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="record in data.items | orderBy: c.orderCol : c.sortOrder">
+      <td ng-repeat="(key,val) in data.labels"><a href="/sp?id=ticket&table=sc_req_item&sys_id={{record.sys_id}}" target=_blank>{{ record[key] }}</a></td>
+      </tr>
+    </tbody>
+      </table>
+</div>
+
+
+  <!-- Step 5. Display customized content based on user input -->
+  <div ng-if="data.itemsInput">
+<ul class="nav nav-tabs" >
+  <li role="presentation"
+      ng-repeat="s in data.summary"
+
+      ng-click="c.selectAg(s)"
+      class="{{c.data.selection === s.agName ? 'active' : 'true'}}"><a ui-sref={{s.agValue}}>{{s.agName}}
+    <span class="label label-as-badge label-primary sp-navbar-badge-count">{{s.agCount}}</span></a>
+  </li>
+
+</ul>
+    <table class="table table-striped"
+         ng-if="data.itemsInput">
+
+    <thead>
+    <tr>
+      <th ng-repeat="(key,val) in data.labels"
+          ng-click="c.changeSortCol(key)">{{val.label}}
+      <span ng-show="c.orderCol==key">
+      <span class="fa fa-sort-asc"
+            ng-show="!c.sortOrder"></span>
+      <span class="fa fa-sort-desc"
+            ng-show="c.sortOrder"></span>
+      </span></th>
+     </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="record in data.itemsInput | orderBy: c.orderCol : c.sortOrder">
+
+      <td ng-repeat="(key,val) in data.labels"><a href="/sp?id=ticket&table={{c.data.selectedAg}}&sys_id={{record.sys_id}}" target=_blank>{{ record[key] }}</a></td>
+
+      </tr>
+
+    </tbody>
+      </table>
+</div>
+
+
+
+</form>

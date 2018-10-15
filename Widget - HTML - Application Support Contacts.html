@@ -1,0 +1,61 @@
+<form>
+   <!-- Step 2. Display initial data from the server -->
+<div class="panel panel-default" ng-if="!data.support_group && !data.support_members && !data.bus_owner">
+  <div class="panel-body">Click Above to Select an Application</div>
+</div>
+
+  <!-- Step 5. Display customized content based on user input -->
+
+  <table class="table table-rounded" ng-if="data.support_group||data.support_members||data.bus_owner">
+        <thead>
+          <tr>
+            <th>Support Contacts</th>
+          </tr>
+        </thead>
+      	<tbody>
+          <tr>
+            <td>
+              <underline>
+                Support Group:
+              </underline>
+            </td>
+          </tr>
+          <tr ng-repeat="s in data.support_group">
+            <td>
+              <p>
+              	<name>{{s.name}}</name>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <underline>
+                Support Group Members:
+              </underline>
+            </td>
+          </tr>
+          <tr ng-repeat="s in data.support_members">
+            <td>
+              <name>{{s.name}}</name>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <underline>
+                Business Owner:
+              </underline>
+            </td>
+          </tr>
+          <tr ng-repeat="s in data.bus_owner">
+            <td>
+              <p>
+                <name>{{s.name}}</name>
+              </p>
+              <p>
+              <name>{{s.phone}}</name>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</form>

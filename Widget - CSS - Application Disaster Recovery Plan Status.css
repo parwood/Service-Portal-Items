@@ -1,0 +1,49 @@
+table{
+  border: solid 1px #8C8C8C;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 15px;
+}
+.table-rounded {
+
+}
+.table-rounded thead th {
+    background-color: #0099d8;
+    color: #fff;
+}
+.table-rounded thead th:first-child {
+    border-radius: 10px 0 0 0;
+}
+.table-rounded thead th:last-child {
+    border-radius: 0 10px 0 0;
+}
+.table-rounded tbody td {
+    border: none;
+    background-color: #fff;
+}
+.table-rounded tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+.table-rounded tbody tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
+
+td i{
+  margin-left: 15px;
+}
+bold{
+  font-weight: bold;
+  margin-right: 30px;
+}
+.invisible-fa{
+  visibility:hidden;
+}
+
+.panel{
+  margin-top: 15px;
+}
+.panel-body{
+  text-align: center;
+}

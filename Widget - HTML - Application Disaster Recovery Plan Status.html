@@ -1,0 +1,47 @@
+<form>
+   <!-- Step 2. Display initial data from the server -->
+<div class="panel panel-default" ng-if="!data.update && !data.exercise">
+  <div class="panel-body">Click Above to Select an Application</div>
+</div>
+
+  <!-- Step 5. Display customized content based on user input -->
+
+  <table class="table table-rounded" ng-if="data.update || data.exercise">
+        <thead>
+          <tr>
+            <th>Disaster Recovery Plan</th>
+            <th>DR Status</th>
+          </tr>
+        </thead>
+      	<tbody>
+          <tr ng-repeat="s in data.update">
+            <td>
+              <bold>
+                Last Updated:
+              </bold>{{s.last_update}}
+            <td><i uib-tooltip-html="'<li>RED = more than 365 days</li>
+              												<li>YELLOW = between 364 and 182 days</li>
+              												<li>GREEN = less than 182 days</li>
+              												<li>Ban symbol = no information available</li>'"
+                   tooltip-placement="bottom"
+                   class="{{s.date_status}}"
+                   style="text-align:center"></i>
+            </td>
+          </tr>
+          <tr ng-repeat="s in data.exercise">
+            <td>
+              <bold>
+                Last Exercised:
+              </bold> {{s.last_exercise}}
+            <td><i uib-tooltip-html="'<li>RED = more than 365 days</li>
+              												<li>YELLOW = between 364 and 182 days</li>
+              												<li>GREEN = less than 182 days</li>
+              												<li>Ban symbol = no information available</li>'"
+                   tooltip-placement="bottom"
+                   class="{{s.date_status}}"
+                   style="text-align:center"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</form>
