@@ -33,7 +33,9 @@
 			});
 
 			data.support_group.push({
-				'name': grApps.support_group.getDisplayValue()
+				'name': grApps.support_group.getDisplayValue(),
+				'manager':grApps.support_group.manager.getDisplayValue(),
+				'manager_phone':grApps.support_group.manager.phone.getDisplayValue()
 			});
 		}
 

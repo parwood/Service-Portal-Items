@@ -1,9 +1,18 @@
 <form>
-      <select id="select_app" name="select_app" class="form-control"
-              ng-model="select_app"
-              ng-options="application.appName for application in data.applications"
-              ng-required="true"
-              ng-change="c.selectApp(select_app)">
-        <option disabled selected value>Select an Application</option>
-      </select>
-</form>	
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h4>
+        The <b>Disaster Recovery Dashboard</b> provides visibility into Disaster Recovery readiness for critical applications and services as identified by the Premera Business Continuity Team. To begin, select an item from the drop-down list below.
+        The page is then divided into three sections:
+      </h4>
+      <ul>
+        <li>Server Replication Status: Displays associated servers and related replication health (NOTE: currently only displays virtual server replication health.)</li>
+        <li>Most recently recorded Disaster Recovery plan and exercise dates</li>
+        <li>Application Support contact information</li>
+      </ul>
+    </div>
+    <select id="select_app" name="select_app" class="form-control" ng-model="select_app" ng-options="application.appName for application in data.applications" ng-required="true" ng-change="c.selectApp(select_app)">
+      <option disabled selected value>Select an Application</option>
+    </select>
+  </div>
+</form>

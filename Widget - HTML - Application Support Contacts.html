@@ -30,13 +30,18 @@
           <tr>
             <td>
               <underline>
-                Support Group Members:
+                Support Group Manager:
               </underline>
             </td>
           </tr>
-          <tr ng-repeat="s in data.support_members">
+          <tr ng-repeat="s in data.support_group">
             <td>
-              <name>{{s.name}}</name>
+             <p>
+                <name>{{s.manager}}</name>
+              </p>
+              <p>
+              <name>{{s.manager_phone}}</name>
+              </p>
             </td>
           </tr>
           <tr>
