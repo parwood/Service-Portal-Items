@@ -1,14 +1,14 @@
 (function() {
 
 	/* Step 1. Load initial data from the server */
-			/* populate the 'data' object */
-			/* e.g., data.table = $sp.getValue('table'); */
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
 
 	if(!input) {
 		data.applications=[];
 		var table = options.table;
 		var grApps = new GlideRecord(options.table);
-		grApps.addActiveQuery();
+		grApps.addQuery('install_status','1');
 		grApps.query();
 
 		while(grApps.next()){
@@ -28,4 +28,4 @@
 
 	}
 
-})();	
+})();
