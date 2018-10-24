@@ -10,9 +10,9 @@
         <li>Most recently recorded Disaster Recovery plan and exercise dates</li>
         <li>Application Support contact information</li>
       </ul>
+      <select id="select_app" name="select_app" class="form-control" ng-model="select_app" ng-options="application.appName for application in data.applications" ng-required="true" ng-change="c.selectApp(select_app)">
+        <option disabled selected value>Select an Application</option>
+      </select>
     </div>
-    <select id="select_app" name="select_app" class="form-control" ng-model="select_app" ng-options="application.appName for application in data.applications" ng-required="true" ng-change="c.selectApp(select_app)">
-      <option disabled selected value>Select an Application</option>
-    </select>
   </div>
 </form>
