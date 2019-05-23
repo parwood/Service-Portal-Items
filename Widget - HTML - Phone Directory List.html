@@ -1,0 +1,11 @@
+<div ng-repeat="s in data.summary" class="col-sm-12 col-md-6 col-lg-4" ng-class="{'high-contrast': accessibilityModeEnabled}">
+  <!--// Circle Icon -->
+  <a ng-href="?id=phone_directory&directory={{s.sys_id}}" class="circle_icon {{::options.class_name}} text-{{::options.color}}" target="{{::data.target}}">
+    <span class="fa fa-stack fa-2x">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-th-list fa-stack-1x fa-inverse"></i>
+    </span>
+    <h2>{{s.title}}</h2>
+    <span class="text-muted">{{s.short_description}}</span>
+  </a>
+</div>

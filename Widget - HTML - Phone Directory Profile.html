@@ -1,0 +1,145 @@
+<form>
+
+  <div class="alert alert-success" role="alert" ng-if="c.data.message">
+    {{c.data.message}}
+  </div>
+
+  <div class="container" ng-repeat='s in data.user_info' ng-if='data.user_info'>
+  <legend>
+    My Phone Directory Profile
+  </legend>
+
+  <!--First Name-->
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label"
+             for="first_name">First Name
+      </label>
+      <input id="first_name"
+             name="first_name"
+             type="text"
+             class="form-control input-md"
+             value={{s.user_first}} readonly>
+    </div>
+  </div>
+
+  <!--Last Name-->
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label"
+             for="last_name">Last Name
+      </label>
+      <input id="last_name"
+             name="last_name"
+             type="text"
+             class="form-control input-md"
+             value={{s.user_last}} readonly>
+    </div>
+  </div>
+
+  <!--Title-->
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label"
+             for="user_title">Title
+      </label>
+      <input id="user_title"
+             name="user_title"
+             type="text"
+             class="form-control input-md"
+             value={{s.user_title}} readonly>
+    </div>
+  </div>
+
+   <!--Office Phone-->
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label"
+             for="office_phone">Office Phone
+      </label>
+      <input id="office_phone"
+             name="office_phone"
+             type="text"
+             class="form-control input-md"
+             value={{s.user_office_phone}} readonly>
+    </div>
+  </div>
+
+   <!--Official Cell-->
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label"
+             for="official_cell">Official Cell
+      </label>
+      <input id="official_cell"
+             name="official_cell"
+             type="text"
+             class="form-control input-md"
+             value={{s.user_official_cell}} readonly>
+    </div>
+  </div>
+
+   <!--Home Phone-->
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label"
+             for="home_phone">Home Phone
+      </label>
+      <input id="home_phone"
+             name="home_phone"
+             type="text"
+             class="form-control input-md"
+             ng-model="c.home_phone">
+    </div>
+  </div>
+
+    <!--Alternate Phone-->
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label"
+             for="alt_phone">Alternate Phone
+      </label>
+      <input id="alt_phone"
+             name="alt_phone"
+             type="text"
+             class="form-control input-md"
+             ng-model="c.alt_phone">
+    </div>
+  </div>
+
+    <!--Short Extension-->
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label"
+             for="short_ext">Short Extension
+      </label>
+      <input id="short_ext"
+             name="short_ext"
+             type="text"
+             class="form-control input-md"
+             ng-model="c.short_ext">
+    </div>
+  </div>
+
+  <!--Submit Button-->
+  <div class="form-group">
+    <div class="col-md-3">
+     <button id="button"
+             name="submit"
+             class="btn btn-primary"
+             ng-click="c.Submit(s)">
+        Submit
+      </button>
+    </div>
+  </div>
+
+
+
+  </div>
+   <div class="container" ng-if='data.no_user'>
+    <div class="alert alert-danger" role="alert">You have no corresponding user record in the Phone Directory Application.</div>
+  </div>
+
+
+</form>
+	

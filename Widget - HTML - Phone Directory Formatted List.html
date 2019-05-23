@@ -1,0 +1,28 @@
+<form>  
+  <!-- Step 2. Display initial data from the server -->
+  <a href="javascript:window.print()" role="link"><i class='fa fa-print fa-2x'></i> Print/Save as PDF</a>
+  <table class="table table-rounded" ng-if="data.parent" ng-repeat="h in data.parent">
+        <thead>
+          <tr>
+            <th>{{h.display}}</th>
+            <th></th>
+            <th>Room Number: {{h.room}}</th>
+          </tr>
+        </thead>
+      	<tbody >
+          <tr ng-repeat="s in h.child">
+            <td>
+            {{s.user_last}}, {{s.user_first}}
+            </td>
+            <td>
+              {{s.user_title}}
+            </td>
+            <td>
+              {{s.user_office_phone}}
+            </td>
+          </tr>
+        </tbody>
+  </table>
+
+  <!-- Step 5. Display customized content based on user input -->
+</form>
