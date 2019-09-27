@@ -1,0 +1,108 @@
+/*Helper classes*/
+.mt-0 {margin-top:0;}
+.mt-2 {margin-top:2rem;}
+.fontsize-inherit {font-size:inherit;}
+/*Inherited from Schedule widget*/
+h1.side-main-header {
+	margin-top:0px;
+  margin-bottom:30px;
+}
+.btn-dark{
+  margin-bottom:20px;
+}
+
+.date-selection-panel {
+  select, .select2-container {margin-bottom: 2rem;}
+}
+
+.body {font-size:1.1em;}
+.panel, .btn, .table {font-size:1.1em;}
+
+/*Inherited from Time Card widget*/
+
+.bg-muted {
+            background:#eee;
+        }
+        .ta-total {
+            font-size: 300%;
+            font-weight: bold;
+            text-align: center;
+        }
+
+/*Increase font size on widget form*/
+.form-control {font-size:16px;height:36px;}
+.panel, .btn, .table {font-size:16px;}
+
+.break-down {
+  margin:0;
+  text-align: center;
+  vertical-align: middle;
+  font-size:75%;
+  display:block;
+  height: 25px;
+  width: 100%;
+}
+
+.break-down-left {
+  margin:0;
+  text-align: left;
+  vertical-align: middle;
+  font-size:75%;
+  display:block;
+  height: 25px;
+  width: 100%;
+}
+
+.ta-total {
+	font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.calendar-date{
+  border:0;
+  padding: 0;
+  width:14%
+}
+
+.break-down-table{
+  width:100%;
+  height:100%;
+}
+
+.day-of-week{
+  text-align: center;
+}
+
+.display-date{
+  text-align: center;
+}
+
+.entries-modal  .modal-content{
+  .panel-body{
+  background:#454;
+	width: 500px;
+  height:500px;
+  }
+}
+
+.entries-modal  .modal-footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
+/*Summary of Hours Table*/
+.table-summary {font-size:12px;}
+/*Modal Time Entry*/
+
+.highlight{
+  font-weight:bold;
+  background: palegreen;
+}
+
+.right{
+  text-align: right;
+  float:right;
+}

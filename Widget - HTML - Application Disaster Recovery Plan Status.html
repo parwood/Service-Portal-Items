@@ -45,3 +45,52 @@
         </tbody>
       </table>
 </form>
+
+
+
+
+
+<pre>{{data.list||JSON}}</pre>
+<div class="panel panel-primary">
+  <div class="panel-heading clear text-lg">{{c.data.selectedDate.display}} <button class="btn btn-info pull-right" ng-click="c.closeModal()">${Close}</button></div>
+  <table class="table table-condensed">
+    <tr class="list-group-item" ng-repeat="item in data.list">
+      <td width="5%">
+        <input type="number" id="entryHours" class="form-control" field="c.data.inputHours" ng-model="item.hours" ng-value="item.hours" min="0" max="24"> hours
+      </td>
+      <td width="35%">
+        <sn-choice-list field="c.selectedCode" sn-model="item.time_code" sn-on-change="item.time_code" sn-items="c.data.timeCodes" sn-value-field="sys_id" sn-text-field="display_name" ng-value="item.time_code.code">
+          {{item.time_code}} </sn-choice-list>
+      </td> <small class="text-muted center" aria-live="polite">
+
+      </small>
+      <td width="15%">
+        <div class="right">
+          <a href="" ng-if='data.sig=="false"' ng-click="c.removeRecord(item)">
+            <fa name="times-circle" class="text-danger"></fa>
+          </a>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div class="panel-body">
+    <table class="table table-condensed">
+      <tr ng-hide='c.data.timeCard.employee_signature == "true"'>
+        <th>Time Code</th>
+        <th>Hours</th>
+      </tr>
+      <tr ng-hide='c.data.timeCard.employee_signature == "true"'>
+        <td width="35%">
+          <sn-choice-list field="c.selectedCode" sn-model="c.data.selectedCode" sn-on-change="" sn-items="c.data.timeCodes" sn-value-field="sys_id" sn-text-field="display_name">
+          </sn-choice-list>
+        </td>
+        <td width="5%">
+          <input type="number" id="inputHours" class="form-control" field="c.data.inputHours" ng-model="c.data.inputHours" min="0" max="24">
+        </td>
+        <td width="15%">
+          <button class="btn btn-default" type="button" ng-click="c.insertEntry()">Submit</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

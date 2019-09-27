@@ -1,0 +1,285 @@
+<div class="container">
+    <div class="row" id="card-n-profile">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <!-- Time Card Selector -->
+            <div class="panel panel-primary date-selection-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Timecard Information</h3>
+                </div>
+                <div class="panel-body">
+                    <label for="payperiod">Select a Timecard:</label>
+                    <sn-choice-list sn-model="c.data.selectedPeriodIndex" sn-on-change="c.payPeriodChange([], selectedValue)" sn-items="c.data.pay_periods" sn-value-field="index" sn-text-field="display" id="payperiod">
+                    </sn-choice-list>
+
+                    <table class="table table-bordered table-summary">
+                        <caption>Summary of Pay Period Hours</caption>
+                        <thead>
+                        <tr class="info">
+                            <th>Time Code</th>
+                            <th>Hours</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="code in c.data.totalHoursByCode">
+                            <td>{{code.timeCode}}</td>
+                            <td>{{code.hours}}</td>
+                        </tr>
+                        <tr class="warning">
+                            <td><strong>Total Hours:</strong></td>
+                            <td><strong>{{c.data.selectedPeriod.totalHours}}</strong></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <!-- Profile Info -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Profile</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Name: <strong>{{c.data.profile.name}}</strong>
+                        <span class='pull-right' ng-if='c.data.timeCard.employee_signature == "true"'><strong>Signed({{data.employee_sig}})</strong></span>
+                        <span class='pull-right' ng-if='c.data.timeCard.employee_signature != "true"'>Unsigned</span>
+                    </p>
+                    <p>Supervisor: <strong>{{c.data.profile.supervisor}}</strong>
+                        <span class='pull-right' ng-if='c.data.timeCard.supervisor_signature == "true"'><strong>Signed({{data.supervisor_sig}})</strong></span>
+                        <span class='pull-right' ng-if='c.data.timeCard.supervisor_signature != "true"'>Unsigned</span>
+                    </p>
+                    <p>Timekeeper: <strong> {{c.data.profile.timekeeper}}</strong>
+                        <span class='pull-right' ng-if='c.data.timeCard.timekeeper_signature == "true"'><strong>Signed({{data.timekeeper_sig}})</strong></span>
+                        <span class='pull-right' ng-if='c.data.timeCard.timekeeper_signature != "true"'>Unsigned</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <button class="btn btn-success btn-block btn-lg" type="button" ng-click="c.signCard(true)" ng-hide='c.data.timeCard.employee_signature == "true"||c.data.timeCard.supervisor_signature=="true"'>Sign Timecard</button>
+                    <button class="btn btn-dark btn-block btn-lg mt-0" type="button" ng-click="c.signCard(false)" ng-show='c.data.timeCard.employee_signature == "true"&&c.data.timeCard.supervisor_signature=="false"'>Remove Signature</button>
+                </div>
+                <div class="col-lg-6">
+                    <button class="btn btn-warning btn-block btn-lg" type="button" ng-click="c.setDefault()">Set as Default Schedule</button>
+
+                </div>
+                <!-- Rejection Notification -->
+                <div class="col-lg-12" ng-if="data.reasons.length > 0 && data.reject=='true'">
+                    <h4>
+                        Rejection Comments:
+                    </h4>
+                    <p class="mt-2" ng-repeat="r in data.reasons"><span class="label label-danger fontsize-inherit">{{r.reject_reasons}}</span></p>
+                </div>
+            </div>
+        </div>
+   </div>
+    <!-- Calendar -->
+    <div class="row" id="calendar-of-week">
+        <div class="col-lg-12">
+            <table class="table table-bordered mt-2">
+                <tr class="bg-primary">
+                    <th class="day-of-week">Sun</th>
+                    <th class="day-of-week">Mon</th>
+                    <th class="day-of-week">Tue</th>
+                    <th class="day-of-week">Wed</th>
+                    <th class="day-of-week">Thur</th>
+                    <th class="day-of-week">Fri</th>
+                    <th class="day-of-week">Sat</th>
+                </tr>
+                <tr>
+                    <td ng-repeat="date in c.data.dates | limitTo:1:0" ng-Class="{true:'bg-warning display-date',false:'bg-muted display-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>{{date.display}}</td>
+                    <td ng-repeat="date in c.data.dates | limitTo:5:1" ng-Class="{true:'bg-warning display-date',false:'display-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>{{date.display}}</td>
+                    <td ng-repeat="date in c.data.dates | limitTo:1:6" ng-Class="{true:'bg-warning display-date',false:'bg-muted display-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>{{date.display}}</td>
+                </tr>
+                <tr>
+                    <td ng-repeat="date in c.data.dates | limitTo:1:0" ng-Class="{true:'bg-warning calendar-date',false:'bg-muted calendar-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>
+                        <table class="table-bordered break-down-table">
+                            <tr ng-repeat="entry in date.entries | limitTo:1:0">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                                <td rowspan=4 class="ta-total" align="center" colspan=2>{{date.totalHours}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:2:1">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:1:3">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}
+                                    <img border="0" class="float-right" ng-show="date.entries.length > 4" style="max-height:16px;" src="images/and.png" alt="images/and.png" title="" data-src="images/and.png" data-original-title="images/and.png">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td ng-repeat="date in c.data.dates | limitTo:5:1" ng-Class="{true:'bg-warning calendar-date',false:'calendar-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>
+                        <table class="table-bordered break-down-table">
+                            <tr ng-repeat="entry in date.entries | limitTo:1:0">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                                <td rowspan=4 class="ta-total" align="center" colspan=2>{{date.totalHours}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:2:1">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:1:3">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}
+                                    <img border="0" class="float-right" ng-show="date.entries.length > 4" style="max-height:16px;" src="images/and.png" alt="images/and.png" title="" data-src="images/and.png" data-original-title="images/and.png">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td ng-repeat="date in c.data.dates | limitTo:1:6" ng-Class="{true:'bg-warning calendar-date',false:'bg-muted calendar-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>
+                        <table class="table-bordered break-down-table">
+                            <tr ng-repeat="entry in date.entries | limitTo:1:0">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                                <td rowspan=4 class="ta-total">{{date.totalHours}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:2:1">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:1:3">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}
+                                    <img border="0" class="float-right" ng-show="date.entries.length > 4" style="max-height:16px;" src="images/and.png" alt="images/and.png" title="" data-src="images/and.png" data-original-title="images/and.png">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-repeat="date in c.data.dates | limitTo:1:7" ng-Class="{true:'bg-warning display-date',false:'bg-muted display-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>{{date.display}}</td>
+                    <td ng-repeat="date in c.data.dates | limitTo:5:8" ng-Class="{true:'bg-warning display-date',false:'display-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>{{date.display}}</td>
+                    <td ng-repeat="date in c.data.dates | limitTo:1:13" ng-Class="{true:'bg-warning display-date',false:'bg-muted display-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>{{date.display}}</td>
+                </tr>
+                <tr>
+                    <td ng-repeat="date in c.data.dates | limitTo:1:7" ng-Class="{true:'bg-warning calendar-date',false:'bg-muted calendar-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>
+                        <table class="table-bordered break-down-table">
+                            <tr ng-repeat="entry in date.entries | limitTo:1:0">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                                <td rowspan=4 class="ta-total" align="center">{{date.totalHours}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:2:1">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:1:3">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}
+                                    <img border="0" class="float-right" ng-show="date.entries.length > 4" style="max-height:16px;" src="images/and.png" alt="images/and.png" title="" data-src="images/and.png" data-original-title="images/and.png">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td ng-repeat="date in c.data.dates | limitTo:5:8" ng-Class="{true:'bg-warning calendar-date',false:'calendar-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>
+                        <table class="table-bordered break-down-table">
+                            <tr ng-repeat="entry in date.entries | limitTo:1:0">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                                <td rowspan=4 class="ta-total">{{date.totalHours}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:2:1">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:1:3">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}
+                                    <img border="0" class="float-right" ng-show="date.entries.length > 4" style="max-height:16px;" src="images/and.png" alt="images/and.png" title="" data-src="images/and.png" data-original-title="images/and.png">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td ng-repeat="date in c.data.dates | limitTo:1:13" ng-Class="{true:'bg-warning calendar-date',false:'bg-muted calendar-date'}[date.query==c.data.selectedDate.query]" ng-click=c.changeDate(date)>
+                        <table class="table-bordered break-down-table">
+                            <tr ng-repeat="entry in date.entries | limitTo:1:0">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                                <td rowspan=4 class="ta-total">{{date.totalHours}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:2:1">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}</td>
+                            </tr>
+                            <tr ng-repeat="entry in date.entries | limitTo:1:3">
+                                <td ng-class="{highlight:entry.short_code=='XA'}" class="break-down">{{entry.hours}} {{entry.short_code}}
+                                    <img border="0" class="float-right" ng-show="date.entries.length > 4" style="max-height:12px;" src="images/and.png" alt="images/and.png" title="" data-src="images/and.png" data-original-title="images/and.png">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <!--Placeholder from Default Button-->
+        </div>
+        <!-- Required Time Modification Authorization documents -->
+        <div class="col-lg-6 col-md-5 col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Required Time Modification Authorization documents</h3>
+                </div>
+                <div class="panel-body">
+                    <p><a href="https://mydata.state.sbu/home?id=sc_cat_item&sys_id=77d93d8ae9d66200d3edaa114c47e600" target="_blank">DS-7100 - Request for Leave or Approved Absence</a></p>
+                    <p><a href="https://mydata.service-now.com/sys_attachment.do?sys_id=0020dd9cdb9eebc0e7c33a5b7c961912" target="_blank">DS-3060 - Authorization of Overtime and Premium Compensation for FLSA Exempt Employees
+                        (updated every CY)</a></p>
+                    <p><a href="https://mydata.service-now.com/sys_attachment.do?sys_id=67325158dbdeebc0e7c33a5b7c961965" target="_blank">DS-3065 - Non-Exempt Overtime and Premium Compensation Authorization
+                        (updated every CY)</a></p>
+                    <p><a href="https://mydata.service-now.com/sys_attachment.do?sys_id=edc2d15cdbdeebc0e7c33a5b7c96196b " target="_blank">DS-3073 - Credit Hours Schedule Form
+                        (updated every CY)</a></p>
+                </div>
+            </div>
+        </div>
+
+      	<div class="col-lg-6 col-md-5 col-sm-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                DS-7100 Attachments
+              </h3>
+            </div>
+            <div class="panel-body"></div>
+            <sp-widget widget="c.data.leaveWidget" />
+                <table class="table table-condensed">
+                    <tr ng-hide='c.data.timeCard.employee_signature == "true"'>
+                    <th>Available Forms</th>
+                  </tr>
+                    <tr ng-hide='c.data.timeCard.employee_signature == "true"'>
+
+                        <td width="35%">
+                            <sn-choice-list sn-model="c.data.selectedLeave"
+                                            sn-on-change=""
+                                            sn-items="c.data.avail_ds_7100"
+                                            sn-value-field="sys_id"
+                                            sn-text-field="number">
+                            </sn-choice-list>
+                        </td>
+
+                        <td width="15%">
+                            <button class="btn btn-default pull-right" type="button" ng-click="c.attachLeave()" >Attach</button>
+                        </td>
+                    </tr>
+                </table>
+          </div>
+      	</div>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+            <sp-widget widget="c.data.attachment" />
+        </div>
+       <!-- MODAL -->
+        <script type="text/ng-template" id="modalTemplate">
+            <div class="panel panel-primary">
+                <div class="panel-heading clear text-lg">{{c.data.selectedDate.display}} <button class="btn btn-info pull-right" ng-click="c.closeModal()">${Close}</button></div>
+
+
+                <sp-widget widget="c.data.listWidget" />
+                <table class="table table-condensed">
+                    <tr ng-hide='c.data.timeCard.employee_signature == "true"'>
+                        <th>Hours</th>
+                        <th>Time Code</th>
+                    </tr>
+                    <tr ng-hide='c.data.timeCard.employee_signature == "true"'>
+                        <td width="10%">
+                            <input type="number" id="inputHours" class="form-control" ng-model="c.data.inputHours" min="0" max="24">
+                        </td>
+                        <td width="35%">
+                            <sn-choice-list sn-model="c.data.selectedCode"
+                                            sn-on-change=""
+                                            sn-items="c.data.timeCodes"
+                                            sn-value-field="sys_id"
+                                            sn-text-field="display_name">
+                            </sn-choice-list>
+                        </td>
+
+                        <td width="15%">
+                            <button class="btn btn-default pull-right" type="button" ng-click="c.insertEntry()" >Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </script>
