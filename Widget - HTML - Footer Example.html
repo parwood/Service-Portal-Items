@@ -1,0 +1,75 @@
+<div class="key-footer">
+  <div class="side-margin">
+    <img src="key-white-logo.png" width="204" height="40"/ style="margin-top:50px; margin-bottom:30px;">
+    <br/>
+    <p class="white-text">
+      &copy;2020 KeyCorp&reg; All Rights Reserved
+    </p>
+  </div>
+</div>
+
+<div class="single-survey" ng-if="data.pageID=='keybank_preboarding'&&data.bankingTask!=''&&c.data.banking_task==true">
+  <div class="panel survey-panel" ng-repeat="s in data.bankingTask| limitTo:1:0">
+    <div class="panel-body survey-body">
+      <i class="fa fa-times survey-close" aria-hidden="true" style="float:right;" ng-click="c.closeBanking(s.sys_id)"></i>
+      <h3 class="survey-head">
+        Open your KeyBank account today!
+      </h3>
+      <p class="survey-sub">
+        Special offer for new hires.
+      </p>
+      <br/>
+      <a href={{s.url}} target="blank" ng-click="c.closeBanking(s.sys_id)">
+        <span class="btn btn-primary">
+          Open a KeyBank Account <i class="fa fa-external-link" aria-hidden="true"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="single-survey" ng-if="data.surveyData.length>0&&c.data.survey==true&&data.pageID!='keybank_preboarding'">
+  <div class="panel survey-panel" ng-repeat="s in data.surveyData| limitTo:1:0">
+    <div class="panel-body survey-body">
+      <i class="fa fa-times survey-close" aria-hidden="true" style="float:right;" ng-click="c.closeSurvey()"></i>
+      <h3 class="survey-head">
+        How is everything?
+      </h3>
+      <p class="survey-sub">
+        We'd love to hear how your onboarding is going so far.
+      </p>
+      <br/>
+      <a href="?id=my_surveys" ng-if="data.surveyData.length>1">
+        <span class="btn btn-primary">
+          View Surveys <i class="fa fa-external-link" aria-hidden="true"></i>
+        </span>
+      </a>
+      <a href="?id=take_survey&instance_id={{::s.sys_id}}" ng-if="data.surveyData.length==1">
+        <span class="btn btn-primary">
+          Take Survey <i class="fa fa-external-link" aria-hidden="true"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+<div ng-if="data.showVid==1">
+  <div class="slider">
+    <div class="popup-overlay">
+    </div>
+    <div class="slider-container text-center">
+      <div class="corss-btn" ng-click="c.closeVideo()">
+        <i class="fa fa-times"></i>
+      </div>
+      <h1 class="text-color">
+        Welcome to Key
+      </h1>
+      <p class="vid-text">
+        We're so excited you're here.
+      </p>
+      <video width="750" height="350" controls onended="angular.element(this).scope().videoEnded()">
+        <source src="" type="video/mp4">
+        your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
