@@ -1,0 +1,41 @@
+<div class="panel b" ng-if="data.table=='incident'">
+  <div class="panel-heading bg-primary panel-la-jolla-default">
+    ${Escalation}
+  </div>
+  <div class="panel-body">
+    <h4 ng-if="data.escalated=='false'">
+      The estimated resolution time is 3 business days from the date opened.
+    </h4>
+    <h4 ng-if="data.escalated=='true'">
+      This incident has already been escalated. Please call the Service Desk or use Live Chat for further assistance.
+    </h4>
+    <br/>
+    <button class='btn btn-success' type="button" style="float: right;" ng-click="c.spawnModal()" ng-if="data.escalated=='false'">
+      Begin Escalation
+    </button>
+  </div>
+</div>
+
+<!-------MODAL------->
+<script type="text/ng-template" id="modalTemplate">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    ${Escalation Information}
+  </div>
+  <div class="panel-body">
+    <form>
+      <div class="form-group">
+        <label for="escReasoning">Required reason for Escalation (minimum 10 characters required)</label>
+        <textarea ng-model="escData" class="form-control" id="reasonForEsc" rows="3" ng-required="true" ng-minlength="10" ></textarea>
+  </div>
+  </form>
+  </div>
+  <div class="panel-footer">
+    <p>
+      Do you still wish to escalate?
+  </p>
+    <button class="btn btn-default" type="button" ng-click="c.insertEntry(escData)" ng-disabled="!escData">Yes</button>
+    <button class="btn btn-default" type="button" ng-click="c.closeModal(escData)">No</button>
+  </div>
+  </div>
+</script>
