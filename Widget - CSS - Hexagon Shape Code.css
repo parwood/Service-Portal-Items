@@ -1,0 +1,44 @@
+.class{
+    position:relative;
+    height:7rem;
+    width:7rem;
+    background:#C8A667;
+}
+
+.class:before{
+    position:absolute;
+    content:'';
+}
+
+.class:before{
+    top:.3rem;
+    left:.3rem;
+    height:calc(100%-.6rem);
+    width:calc(100%-.6rem);
+    background:$eitaas-dark-slate;
+}
+.class, .class:before{
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+
+  body {
+    background:linear-gradient(to right,pink, blue);
+   }
+   .hexagon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background:
+      linear-gradient(to bottom left,transparent calc(70% - 3px), #000 calc(30% - 3px))0 100%/50% 85% no-repeat,
+      linear-gradient(to bottom right,transparent calc(70% - 3px), #000 calc(30% - 3px))105% 0/50% 90% no-repeat,
+      linear-gradient(to top right,transparent calc(50% - 3px), #000 calc(50% - 3px))100% 0/30% 51% no-repeat,
+      linear-gradient(to top left,transparent calc(50% - 3px), #000 calc(50% - 3px))0 0/30% 51% no-repeat,
+      linear-gradient(#000,#000)0 0/80px 10% no-repeat, 
+      linear-gradient(#000,#000)100% 87px/100px 100% no-repeat,
+      rgba(102, 204, 34, 0.5);
+    -webkit-clip-path: polygon(100% 50%,75% 93.3%,25% 93.3%,0% 50%,25% 6.7%,75% 6.7%);
+    clip-path: polygon(100% 50%,75% 93.3%,25% 93.3%,0% 50%,25% 6.7%,75% 6.7%);
+  }
