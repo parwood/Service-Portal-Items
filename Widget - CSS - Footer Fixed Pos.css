@@ -1,0 +1,13 @@
+section.page {
+display: flex;
+flex-direction: column;
+display: -ms-flexbox;
+-ms-flex-direction: column;
+}
+
+section.page > main.body,
+section.page > section.body {
+flex-grow: 1;
+flex-shrink: 0;
+-ms-flex-positive: 1;
+}
