@@ -1,0 +1,43 @@
+sn-search-facets {
+      --now-button--bare_primary--color: $ULS-Bright-Red;
+      --now-button--bare_primary--color--hover: $ULS-Accent-Coral;
+      --now-button--bare_primary--color--active: $ULS-Accent-Coral;
+      --now-button--bare_primary--background-color--hover: $ULS-Accent-Coral;
+      --now-actionable--primary_bare--background-color--hover: $ULS-Accent-Coral;
+      --now-button--bare_primary--background-color-alpha--hover: $ULS-Accent-Coral;
+      --now-actionable--background-color-alpha--hover: $ULS-Accent-Coral;
+      --now-button--primary--background-color: $ULS-White;
+      --now-button--primary--background-color--hover: $ULS-White;
+      --now-button--secondary--background-color: $ULS-White;
+      --now-button--secondary--background-color--hover: $ULS-White;
+      --now-button--tertiary--background-color: $ULS-White;
+      --now-button--tertiary--background-color--hover: $ULS-White;
+      --now-checkbox--background-color--checked: $ULS-White;
+      --now-checkbox--background-color--hover: $ULS-White;
+      --now-checkbox--background-color--active: $ULS-White;
+      --now-checkbox--background-color--checked_active: $ULS-White;
+      --now-checkbox--background-color--checked_hover: $ULS-White;
+      --now-checkbox--border-color: $ULS-Bright-Red;
+      --now-checkbox--border-color--checked: $ULS-Bright-Red;
+      --now-checkbox--border-color--checked_active: $ULS-Bright-Red;
+      --now-checkbox--border-color--checked_focus: $ULS-Bright-Red;
+      --now-checkbox--border-color--hover: $ULS-Bright-Red;
+      --now-checkbox--border-color--active: $ULS-Bright-Red;
+      --now-checkbox--border-color--focus: $ULS-Bright-Red;
+      --now-checkbox_icon--color--active: $ULS-Bright-Red;
+      --now-checkbox_icon--color: $ULS-Bright-Red;
+      --now-checkbox_icon--color--hover: $ULS-Bright-Red;
+      --now-checkbox_icon--color--focus: $ULS-Bright-Red;
+      --now-pill--background-color--selected: $ULS-Bright-Red;
+      --now-pill--background-color--selected_hover: $ULS-Accent-Coral;
+      --now-pill--border-color--selected: $ULS-Bright-Red;
+      --now-pill--border-color--selected_hover: $ULS-Accent-Coral;
+      --now-pill--color--selected: $ULS-White;
+      --now-color--link-2: $ULS-Bright-Red !important;
+    }
+  sn-search-results-container {
+    --now-text-link--primary--color: $ULS-Bright-Red !important;
+    --now-text-link--primary--color--hover: $ULS-Accent-Coral !important;
+    --now-color--secondary-1: $ULS-Bright-Red !important;
+    --now-text-link--font-weight: 700;
+  }

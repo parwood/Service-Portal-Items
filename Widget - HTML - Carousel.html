@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="hidden-sm col-md-3"> 
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <h1 class="center light bottom-space">
+      My Onboarding Journey
+    </h1>
+  </div>
+  <div class="hidden-sm col-md-3">
+  </div>
+</div>
+<div class="row">
+  <div class="hidden-sm col-md-3"> 
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <table class="center" style="width:100%; margin-bottom:25px;">
+      <tr>
+        <td>
+          <a ng-click="c.changeActive(0)"> 
+            <span style="clear:left;">
+              <img src="key-journey-one-red.png"  style="float:left;" ng-if="data.start_diff>0"/>
+              <img src="key-journey-one-grey.png"  style="float:left; margin-top:-15px;" ng-if="data.start_diff<=0"/>
+              <span ng-class="{'subhead':data.start_diff<=0, 'subhead-bold':data.start_diff>0}"> 
+                Welcome
+              </span>
+              <br/>
+              <p class="subtext">
+                Before Day 1 
+              </p>
+            </span>
+          </a>
+        </td>
+        <td style=>
+          <a ng-click="c.changeActive(1)"> 
+            <span style="clear:left;">
+              <img src="key-journey-two-grey.png"  style="float:left; margin-top:-15px;" ng-if="data.start_diff>0||data.start_diff<-29"/>
+              <img src="key-journey-two-red.png"  style="float:left; margin-top:-15px;" ng-if="data.start_diff<=0&&data.start_diff>-29"/>
+              <span ng-class="{'subhead':data.start_diff>0||data.start_diff<-29, 'subhead-bold':data.start_diff<=0&&data.start_diff>-29}">
+                Orientation
+              </span>
+              <br/>
+              <p class="subtext">
+                Day 1-29
+              </p>
+            </span>
+          </a>
+        </td>
+        <td style=>
+          <a ng-click="c.changeActive(7)"> 
+            <span style="clear:left;">
+              <img src="key-journey-three-grey.png"  style="float:left; margin-top:-15px;" ng-if="data.start_diff>-29"/>
+              <img src="key-journey-three-red.png"  style="float:left; margin-top:-15px;" ng-if="data.start_diff<=-29"/>
+              <span ng-class="{'subhead':data.start_diff>-29, 'subhead-bold':data.start_diff<=-29}">
+                On Your Way
+              </span>
+              <br/>
+              <p class="subtext">
+                Day 30-60
+              </p>
+            </span>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="hidden-sm col-md-3">
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <uib-carousel class="bordered" interval="options.interval" >
+      <uib-slide ng-repeat="slide in ::data.slides"
+                 active="slide.active">
+        <img ng-src="{{::slide.background}}" style="margin:auto;  " role="presentation">
+      </uib-slide>
+
+
+      <div class="boxed-text">
+        <span ng-repeat="carousel in data.message" class="text-margin">
+          <h4>
+            {{carousel.heading}}
+          </h4>
+          <p>
+            {{carousel.sub_heading}}
+          </p>
+        </span>
+      </div>
+    </uib-carousel>
+  </div>
+</div>
+<div class="row" >
+  <div class="col-sm-12 center btn-space">
+    <a href="https://wd5.myworkday.com/keybank/d/home.htmld" target="_blank" ng-if="data.slideIndex=='0'&&data.closed==0" class="btn btn-primary btn-lg extra-space medium" ng-click="c.completeTasks(data.slideIndex)">Complete All Now <i class="fa fa-external-link" aria-hidden="true"></i></a>
+    <a href="https://wd5.myworkday.com/keybank/d/home.htmld" target="_blank" ng-if="data.slideIndex=='0'&&data.closed!=0" class="btn btn-primary btn-lg extra-space black-btn medium">Revisit <i class="fa fa-external-link" aria-hidden="true"></i></a>
+  </div>
+</div>
+<div class="row" style="margin-top:50px;">
+  <div class="col-sm-12" ng-if="data.slideIndex=='0'">
+    <widget id="sno-hp-before-day-one"></widget>
+  </div>
+  <div class="col-sm-12" ng-if="data.slideIndex=='1'">
+    <a ng-if="data.slideIndex=='0'&&data.closed=='0'" class="btn btn-primary btn-lg extra-space">Complete all tasks <i class="fa fa-external-link" aria-hidden="true"></i></a>
+    <widget id="sno-hp-day-one-activities"></widget>
+  </div>
+  <div class="col-sm-12" ng-if="data.slideIndex=='2'">
+    <widget id="sno-hp-day-two-activities"></widget>
+  </div>
+  <div class="col-sm-12" ng-if="data.slideIndex=='3'">
+    <widget id="sno-hp-day-five-activities"></widget>
+  </div>
+  <div class="col-sm-12" ng-if="data.slideIndex=='4'">
+    <widget id="sno-hp-day-ten-activities"></widget>
+  </div>
+  <div class="col-sm-12" ng-if="data.slideIndex=='5'">
+    <widget id="sno-hp-day-fifteen-activities"></widget>
+  </div>
+  <div class="col-sm-12" ng-if="data.slideIndex=='6'">
+    <widget id="sno-hp-day-twenty-activities"></widget>
+  </div>
+  <div class="col-sm-12" ng-if="data.slideIndex=='7'">
+    <widget id="sno-hp-day-thirty-activities"></widget>
+  </div>
+</div>
+
+</div>
