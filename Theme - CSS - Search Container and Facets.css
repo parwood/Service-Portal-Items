@@ -1,43 +1,370 @@
-sn-search-facets {
-      --now-button--bare_primary--color: $ULS-Bright-Red;
-      --now-button--bare_primary--color--hover: $ULS-Accent-Coral;
-      --now-button--bare_primary--color--active: $ULS-Accent-Coral;
-      --now-button--bare_primary--background-color--hover: $ULS-Accent-Coral;
-      --now-actionable--primary_bare--background-color--hover: $ULS-Accent-Coral;
-      --now-button--bare_primary--background-color-alpha--hover: $ULS-Accent-Coral;
-      --now-actionable--background-color-alpha--hover: $ULS-Accent-Coral;
-      --now-button--primary--background-color: $ULS-White;
-      --now-button--primary--background-color--hover: $ULS-White;
-      --now-button--secondary--background-color: $ULS-White;
-      --now-button--secondary--background-color--hover: $ULS-White;
-      --now-button--tertiary--background-color: $ULS-White;
-      --now-button--tertiary--background-color--hover: $ULS-White;
-      --now-checkbox--background-color--checked: $ULS-White;
-      --now-checkbox--background-color--hover: $ULS-White;
-      --now-checkbox--background-color--active: $ULS-White;
-      --now-checkbox--background-color--checked_active: $ULS-White;
-      --now-checkbox--background-color--checked_hover: $ULS-White;
-      --now-checkbox--border-color: $ULS-Bright-Red;
-      --now-checkbox--border-color--checked: $ULS-Bright-Red;
-      --now-checkbox--border-color--checked_active: $ULS-Bright-Red;
-      --now-checkbox--border-color--checked_focus: $ULS-Bright-Red;
-      --now-checkbox--border-color--hover: $ULS-Bright-Red;
-      --now-checkbox--border-color--active: $ULS-Bright-Red;
-      --now-checkbox--border-color--focus: $ULS-Bright-Red;
-      --now-checkbox_icon--color--active: $ULS-Bright-Red;
-      --now-checkbox_icon--color: $ULS-Bright-Red;
-      --now-checkbox_icon--color--hover: $ULS-Bright-Red;
-      --now-checkbox_icon--color--focus: $ULS-Bright-Red;
-      --now-pill--background-color--selected: $ULS-Bright-Red;
-      --now-pill--background-color--selected_hover: $ULS-Accent-Coral;
-      --now-pill--border-color--selected: $ULS-Bright-Red;
-      --now-pill--border-color--selected_hover: $ULS-Accent-Coral;
-      --now-pill--color--selected: $ULS-White;
-      --now-color--link-2: $ULS-Bright-Red !important;
+/**
+* Watch out for using globals as selectors, as you may experience with bleeding. Try to use specific classes where possible and globals as a fallback.
+**/
+
+//CSS Overrides for Light and Dark themes
+$grey-text: #D4CEC4;
+$grey-border: #3E4242;
+$link-color-1: #C35F54;
+$link-color-2: #01778e;
+
+
+@media (prefers-color-scheme: light) {
+    //Set based on theme variables
+    :root {
+        //==Text color
+        --now-color_text--primary: #181A1F;
+        --now-color_text--secondary: #474D5A;
+        --now-color_text--tertiary: #656E81;
+        --now-color--neutral-0: #ffffff;
+
+        //==Backgrounds
+        --now-color_background--primary: #ffffff;
+        --now-color_background--secondary: #f6f6f8;
+        --now-color_background--tertiary: #F0F1F5;
+
+        //==borders
+        --now-color_border--primary: #8790A1;
+        --now-color_border--secondary: #ACB2BE;
+        --now-color_border--tertiary: #DADDE2;
+
+        //==colors for selected
+        --now-color_selection--primary-2: #007b58;
+        --now-color_selection--primary-0: #D7EBE5;
+        --now-color_selection--primary-4: #003929;
+
+        //==Primary color 
+        --now-color--primary-3: #252c38;
+        --now-color--primary-2: #3b6579;
+        --now-color--interactive-1: #3b6579;
+        --now-color--primary-0: #bfded3;
+        --now-color--primary-0: #e6f0ec;
+
+        //==Brand Darker colors
+        --now-color_alert--critical-3: #CC293C;
+        --now-color_alert--warning-3: #AFA400;
+        --now-color_alert--moderate-3: #6B52C4;
+        --now-color_alert--low-3: #6E6F78;
+        --now-color_alert--positive-3: #3B7F00;
+        --now-color_alert--info-3: #297CB2;
+
+        // Define NavBar
+        --now-color_chrome--divider-10: #3b6579;
+        --now-color_chrome--brand-10: #252c38;
+        --now-color--neutral-2: #DADDE2;
+        --now-color--neutral-0: #ffffff;
+        --now-color--neutral-0: #ffffff;
+        
+        // Define Body
+        --now-color_surface--brand-1: #e6f2ee;
+
+        //## Gray and brand colors for use across Bootstrap.
+        --now-color--neutral-21: #000000;
+        --now-color--neutral-18: #181A1F;
+        --now-color--neutral-16: #282C33;
+        --now-color--neutral-11: #4f5664;
+        --now-color--neutral-9: #656E81;
+        --now-color--neutral-1: #F6F6F8;
+
+        --now-color--primary-1: #4f52bd;
+        --now-color_alert--critical-2: #E42338;
+        --now-color_alert--warning-2: #F0E000;
+        --now-color_alert--moderate-2: #8B6BFF;
+        --now-color_alert--low-2: #9698A4;
+        --now-color_alert--positive-2: #51ae00;
+        --now-color_alert--info-2: #38aaf4;
+
+        --now-color--neutral-18: #181A1F;
+        --now-color--neutral-12: #474D5A;
+        --now-color--neutral-10: #575F6E;
+        --now-color--neutral-6: #9AA1AF;
+        --now-color--neutral-4: #BDC2CB;
+        --now-color--neutral-2: #F0F1F5;
+        --now-color--neutral-0: #ffffff;
+        --now-color_selection--primary-2: #007b58;
+        --now-color_selection--primary-1: #51A58D;
+        --now-color_selection--primary-0: #D7EBE5;
+
+        --now-color--neutral-18: #181A1F; 
+        --now-color--neutral-12: #474D5A; 
+        --now-color--neutral-10: #575F6E; 
+        --now-color--neutral-6: #9AA1AF; 
+        --now-color--neutral-4: #BDC2CB; 
+        --now-color--neutral-2: #F0F1F5; 
+        --now-color--neutral-0: #ffffff; 
+        --now-color_selection--primary-2: #007b58; 
+        --now-color_selection--primary-1: #51A58D; 
+        --now-color_selection--primary-0: #D7EBE5; 
+
+        //define service portal preview outline highlighting
+        --now-color_alert--info-4: #1A4E70;
+        --now-color--neutral-0: #ffffff;
+
+        //** Global textual link color.
+        --now-color--link-2: #3c59e7;
+        --now-color--link-3: #263994;
+
+        //btns
+        --now-color_alert--positive-3: #3B7F00; //$btn-success-bg
+        --now-color_alert--info-1: #8CCEF9; //$btn-info-bg
+        --now-color_alert--warning-1: #F6ED6C; //$btn-warning-bg
+        --now-color_alert--critical-3: #CC293C; //$btn-danger-bg
+
+        //forms
+        --now-color--focus-2: #3c59e7; //--input-border-focus
+
+        //=== Inverted navbar
+      // Reset inverted navbar basics
+      --now-color--neutral-2: #F0F1F5; //--now-color--neutral-2
+      --now-color_chrome--brand-10: #252c38; //--now-color_chrome--brand-10
+      --now-color_chrome--divider-10: #0a090f; //--now-color_chrome--divider-10
+
+      // Inverted navbar links
+      --now-color--neutral-2: #F0F1F5; //--now-color--neutral-2
+      --now-color--neutral-0: #ffffff; //--now-color--neutral-0
+      --now-color_chrome--divider-10: #0a090f; //--now-color_chrome--divider-10
+      --now-color--neutral-3: #DADDE2; //--now-color--neutral-3
+      --now-color--neutral-0: transparent; 
+
+      //== Form states and alerts     
+      --now-color_alert--positive-0: #D2EABC; //--now-color_alert--positive-0
+      --now-color_alert--info-0: #CBE9FC; //--now-color_alert--info-0
+      --now-color_alert--warning-0: #FBF7BC; //--now-color_alert--warning-0
+      --now-color_alert--critical-0: #FFCCD2; //--now-color_alert--critical-0
+      
+      //== Labels
+      --now-color_alert--low-1: #C2C4CA; //--now-color_alert--low-1
+
+      //== Code
+      --now-color_alert--critical-3: #cd293c; //--now-color_alert--critical-3
+
     }
-  sn-search-results-container {
-    --now-text-link--primary--color: $ULS-Bright-Red !important;
-    --now-text-link--primary--color--hover: $ULS-Accent-Coral !important;
-    --now-color--secondary-1: $ULS-Bright-Red !important;
-    --now-text-link--font-weight: 700;
-  }
+}
+@media (prefers-color-scheme: dark) {
+    //AI Search overrides
+    sn-search-combobox,
+    sn-search-facets {
+        //--now-color_background--primary: #fff !important; input background
+        --now-color_text--primary: $grey-text !important; //button color, maybe input
+        --now-color_text--tertiary: $grey-text !important; //placeholder, maybe input
+
+        --now-heading--title-primary--color: $grey-text !important;
+        --now-color_text--primary: $grey-text !important;
+        --now-color--neutral-18: $grey-text !important;
+
+        
+
+        //--now-color_brand--primary-1: #fff;
+        //--now-tabs--selected--color: #fff;
+        //--now-color--link-2: #fff;
+    }
+    sn-search-facets {
+        --now-color_divider--tertiary: $grey-border !important; //panel border
+        --now-color--neutral-3: $grey-border !important; //panel border
+    }
+    sn-search-results-container {
+        --now-color_text--primary: $grey-text !important; //genius results text and hit mark text, so they have to be the same
+        --now-color--neutral-18: $grey-text !important;
+        --now-color_alert--warning-1: #FF79C6 !important;
+        --now-display-type--secondary--color: $grey-text !important;
+        --now-color_text--secondary: $grey-text !important;
+        --now-color--neutral-15: $grey-text !important;
+        --now-tabs--opacity--disabled: 1 !important;
+        --now-opacity--less:1 !important; 
+        --now-display-type--tertiary--color: $grey-text !important;
+        --now-color_text--tertiary: $grey-text !important;
+        --now-color--neutral-12: $grey-text !important;
+        --now-button--bare_tertiary--color: $grey-text !important;
+       --now-color_background--primary: #333 !important; //genius results background (slightly lighter than page background because you can't modify the border/box-shadow)
+       --now-color--neutral-0: #333 !important; //genius results background
+    }
+    
+    sn-tab-filter {
+        --now-tabs--color: $grey-text !important;
+        --now-color_text--primary: $grey-text !important;
+        
+        --now-color--neutral-18: $grey-text !important;
+        --now-tabs--opacity--disabled: .50 !important;
+        --now-opacity--less: .50 !important; 
+        
+        --now-tabs--color--hover: $grey-text !important;
+        --now-color_selection--primary-3: $grey-text !important;
+
+        --now-button--secondary-selection--color: var(--now-color--link-2) !important;
+        --now-color_selection--primary-2: var(--now-color--link-2) !important;
+    }
+    now-popover-panel {
+        --now-color_text--primary: $grey-text !important;        
+        --now-color--neutral-18: $grey-text !important;
+        --now-dropdown-list--background-color--focus: darken(217, 235, 238, .25);
+        --now-color--secondary-0: darken(217, 235, 238, .25);
+        --now-dropdown-list--background-color-alpha--focus: .25;
+    }
+
+    //==Additional overrides
+    select {
+        background: transparent !important;
+        border: 1px solid $grey-text !important;
+        color: $grey-text !important;
+    }
+    input.form-control {
+        background: transparent !important;
+        border: 1px solid $grey-text !important;
+        color: $grey-text !important;
+        ::placeholder {
+            color: $grey-text !important;
+        }
+        
+    }
+    #form-content-search > div > span > button {
+        background: transparent !important;
+        border: 1px solid $grey-text !important;
+        color: $grey-text !important;
+    }
+    .btn-loadmore {
+        background: transparent !important;
+        border: 1px solid $grey-text !important;
+        color: $grey-text !important;
+    }
+    .btn-favorite.favorite-button {
+        background: transparent !important;
+        border: none !important;
+        .favorite-primary {
+            color: $link-color-1 !important;
+        }
+    }
+    //TOPIC PAGES
+    
+    .sub-topics-widget-container .browse-elevation {
+        background: transparent !important;
+        border: 1px solid $grey-text !important;
+        h3 {
+            color: $grey-text !important;
+        }
+    }
+    .sub-topics-widget-container .main-container .subtopics {
+        background: transparent !important;
+        border: 1px solid $grey-text !important;
+        .item-name {
+            color: $grey-text !important;
+        }
+    }
+    .sub-topics-widget-container .main-container .show-more .btn {
+        color: $grey-text !important;
+    }
+    .link-container {
+        background: transparent !important;
+        border: 1px solid $grey-text !important;
+        color: $grey-text !important;
+        h3 {
+            color: $grey-text !important;
+        }
+    }
+    .all-link-container {
+        background: transparent !important;
+    }
+    .content-container .card-title,
+    .icon-container {
+        color: $link-color-2 !important;
+    }
+    .browse-content-container .browse-elevation {
+        border: 1px solid $grey-text !important;
+        h3 {
+            color: $grey-text !important;
+        }
+        background: transparent !important;
+    }
+    a.content-card-container.content-card {
+        background: transparent !important;
+        border: none !important;
+        color: $grey-text !important;
+        .item-title {
+            color: $grey-text !important;
+        }
+    }
+    .title-item-filters {
+        label {
+            color: $grey-text !important;
+        }
+    }
+    .view-controls {
+        i {
+            color: $link-color-2 !important;
+        }
+    }
+    //==END Additional overrides
+    :root {
+        //need to dark versions of the variables
+        //==Backgrounds
+        --now-color_background--primary: #000;
+        --now-color_background--secondary: #000;
+        --now-color_background--tertiary: #000;
+        --now-color--neutral-0: #ffffff;
+        --now-color--neutral-18: $grey-text;
+
+        //** Global textual link color.
+        --now-color--link-2: $link-color-2;
+        --now-color--link-3: #263994;
+
+        //convert to hex
+        --now-color--neutral-12: #282C33;
+        --now-color_focus-ring: #090909;
+        --now-tabs--selected--color: #007b58;
+        --mv9-zrk1--1tjtJztp--JvjvZ: #007b58;
+        --mv9-zrk1--1tjtjztp--jvjvz: #007b58;
+        --now-tabs--color--hover: #007b58;
+        --mv9-zrk1--JvjvZ--8vstZ: #007b58;
+        --mv9-zrk1--jvjvz--8vstz: #007b58;
+        --now-tabs--border-color: #dadde2;
+        --mv9-zrk1--kvZptZ-JvjvZ: #dadde2;
+        --mv9-zrk1--kvzptz-jvjvz: #dadde2;
+        --now-tabs--selected--background-color: #007b58;
+        --mv9-zrk1--1tjtJztp--krJUfZvWmp-JvjvZ: #007b58;
+        --mv9-zrk1--1tjtjztp--krjufzvwmp-jvjvz: #007b58;
+        --now-heading--title-primary--color: #282C33;
+        --mv9-8trpAmf--zAzjt-XZATrZO--JvjvZ: #282C33;
+        --mv9-8trpamf--zazjt-xzatrzO--jvjvz: #282C33;
+        --now-checkbox-label--color: #282C33;
+        --mv9-J8tJUkvu-jrktj--JvjvZ: #282C33;
+        --mv9-j8tjukvu-jrktj--jvjvz: #282C33;
+        --now-button--primary--bare--color: #3c59e7;
+        --mv9-kWzzvm--XZATrZO--krZt--JvjvZ: #3c59e7;
+        --mv9-kwzzvm--xzatrzO--krzt--jvjvz: #3c59e7;
+        --now-button--primary--bare--color--active: #3c59e7;
+        --mv9-kWzzvm--XZATrZO--krZt--JvjvZ--rJzAst: #3c59e7;
+        --mv9-kwzzvm--xzatrzO--krzt--jvjvz--rjzAst: #3c59e7;
+        --now-button--primary--bare--color--hover: #3c59e7;
+        --mv9-kWzzvm--XZATrZO--krZt--JvjvZ--8vstZ: #3c59e7;
+        --mv9-kwzzvm--xzatrzO--krzt--jvjvz--8vstz: #3c59e7;
+        --now-pill--selected--background-color: #090909;
+        --mv9-XAjj--1tjtJztp--krJUfZvWmp-JvjvZ: #090909;
+        --mv9-xAjj--1tjtjztp--krjufzvwmp-jvjvz: #090909;
+        --now-pill--selected--border-color: #090909;
+        --mv9-XAjj--1tjtJztp--kvZptZ-JvjvZ: #090909;
+        --mv9-xajj--1tjtjztp--kvzptz-jvjvz: #090909;
+        --now-button--secondary--background-color: #252c38;
+        --mv9-kWzzvm--1tJvmprZO--krJUfZvWmp-JvjvZ: #252c38;
+        --mv9-kwzzvm--1tjvmprzO--krjufzvwmp-jvjvz: #252c38;
+        --now-button--secondary--color: #090909;
+        --mv9-kWzzvm--1tJvmprZO--JvjvZ: #090909;
+        --mv9-kwzzvm--1tjvmprzO--jvjvz: #090909;
+        --now-button--secondary--border-color: #090909;
+        --mv9-kWzzvm--1tJvmprZO--kvZptZ-JvjvZ: #090909;
+        --mv9-kwzzvm--1tjvmprzO--kvzptz-jvjvz: #090909;
+        --now-button--secondary--background-color--hover: #e6e6e6;
+        --mv9-kWzzvm--1tJvmprZO--krJUfZvWmp-JvjvZ--8vstZ: #e6e6e6;
+        --mv9-kwzzvm--1tjvmprzO--krjufzvwmp-jvjvz--8vstz: #e6e6e6;
+
+        --nav_menu-input--color--placeholder: #fff;
+        --nav_menu-input--color: #fff;
+        --nav_menu-input--color--opened: #fff;
+        --nav_menu-input--background-color: #000;
+        --nav_menu-input--background-color--hover: #000;
+        --nav_menu-input--background-color--opened: #000;
+        --nav_menu-input--border-color: #000;
+        --nav_menu-input--search-icon-color--collapsed: #fff;
+
+        
+    }
+    
+}
