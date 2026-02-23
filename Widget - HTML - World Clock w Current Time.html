@@ -1,0 +1,4 @@
+<div class="time-container">
+  <p>My Current Time: <span>{{myTime}}</span></p>  
+  <p ng-repeat="thing in data.timeOptions track by $index">{{thing.city}}: <span ng-bind="{{thing.city_code}}"></span></p>  
+</div>
