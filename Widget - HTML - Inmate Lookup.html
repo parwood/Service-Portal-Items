@@ -1,0 +1,43 @@
+<div class="search-container">
+
+  <div class="panel panel-default">
+    <div class="panel-header">
+      <h1>
+        Inmate Lookup
+      </h1>
+    </div>
+    <div class="panel-body">
+      <div class="first-column">
+
+        <label>Last Name: <br/><input type="text" id="lastName" ng-model="lastname" /></label>
+        <label>Middle Name: <br/><input type="text" id="middleName" ng-model="middlename" /></label>
+        <label>Booking Number: <br/><input type="text" id="bookingNumber" ng-model="bookingnumber" /></label>
+
+      </div>
+      <div class="second-column">
+
+
+        <label>First Name: <br/><input type="text" id="firstName" ng-model="firstname" /></label>
+        <label>Date of Birth: <br/><input type="date" name="birthday" id="birthday"  ng-model="birthday"/></label>
+        <label>Gender: <br/><select id="gender" name="gender_select" class="form-control" ng-model="gender" 
+                                    ng-options="gender.gender for gender in data.gender_options" 
+                                    ng-required="false">
+          <option disabled selected value>Please Select</option>
+          </select></label>
+      </div>
+
+    </div>
+    <div class="panel-footer">
+       <button class="btn btn-default clear-form" ng-click="c.clearForm()">
+        Clear
+      </button>
+      <button class="btn btn-primary search-results" ng-click="c.sendParams(lastname, middlename, bookingnumber, firstname, birthday, gender)">
+        Search
+      </button>
+     
+    </div>
+  </div>
+</div>
+<div class="results-container" ng-if="data.showTable">   
+  <sp-widget widget="data.table_widget"></sp-widget>
+</div>

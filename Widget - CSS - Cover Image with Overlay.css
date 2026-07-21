@@ -1,0 +1,8 @@
+.cover-image-container {
+    /* Layer the semi-transparent black gradient over the image */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('your-image.jpg');
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center;
+    height: 350px; /* Set a height for the container */
+    color: white; /* Example for text color on top */
+}

@@ -1,0 +1,39 @@
+.panel-body{
+  display:flex;
+  flex-direction:row;
+  align-items:flex-start;
+  justify-content:center;
+  margin-top:3rem;
+}
+.panel-footer{
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-end;
+}
+.first-column{
+  display:flex;
+  flex-direction:column;
+  margin-right:5rem;
+}
+.second-column{
+  display:flex;
+  flex-direction:column;
+  margin-left:5rem;
+}
+input{
+  height:35px;
+}
+.panel-header{
+  display:flex;
+  justify-content:center;
+}
+.clear-form{
+  margin-right:2.5%;
+  color:#2C5234;
+  border-color:#2C5234;
+}
+.search-results{
+  background-color:#2C5234;
+  color:#FFFFFF;
+  border-color:#2C5234;
+}
