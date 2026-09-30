@@ -1,0 +1,15 @@
+.ve92da6cdb8b2e610f87754cd71045a00 a.item-container:hover,
+.ve92da6cdb8b2e610f87754cd71045a00 .submenu-item a,
+.left-nav.left-nav-desktop .sp-page-root {
+  background-color:#F5F1E7 !important;
+}
+.left-nav.left-nav-desktop footer {
+  border:none !important;
+}
+.left-nav.left-nav-desktop section.page {
+  max-width: calc(100% - 70px) !important;
+}
+.ve92da6cdb8b2e610f87754cd71045a00 .nav-container {
+  background: var(--Anchor-Soft-Tan, #F5F1E7);
+  box-shadow: 6px 0 12px 0 rgba(0, 0, 0, 0.10);
+}

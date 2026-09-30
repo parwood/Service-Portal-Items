@@ -1,0 +1,17 @@
+div[aria-label="Attachments"], 
+    [data-label="Attachments"] {
+      color: var(--Grayscale-Black, #000);
+      font-family: "Roobert TRIAL";
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    /* Remove the green [tabindex] focus border on mouse/touch clicks.
+   Keyboard focus still shows the original green ring (accessibility intact). */
+[tabindex]:not(.sp-ac-root):not(.sp-duration-field):not(.duration-wrapper):focus:not(:focus-visible) {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
